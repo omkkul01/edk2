@@ -127,3 +127,6 @@
   gArmPlatformTokenSpaceGuid.PcdPL031RtcPpmAccuracy|300000000|UINT32|0x00000022
 
   gArmPlatformTokenSpaceGuid.PcdWatchdogCount|0x0|UINT32|0x00000033
+
+[Protocols.common]
+  gMmHestErrorSourceDescProtocolGuid = { 0x560bf236, 0xa4a8, 0x4d69, { 0xbc, 0xf6, 0xc2, 0x97, 0x24, 0x10, 0x9d, 0x91 } }
