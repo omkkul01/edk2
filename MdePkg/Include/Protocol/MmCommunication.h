@@ -12,6 +12,8 @@
 #ifndef _MM_COMMUNICATION_H_
 #define _MM_COMMUNICATION_H_
 
+#define MM_COMMUNICATE_HEADER_SIZE (OFFSET_OF (EFI_MM_COMMUNICATE_HEADER, Data))
+
 #pragma pack(1)
 
 ///
