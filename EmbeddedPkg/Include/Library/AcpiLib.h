@@ -22,6 +22,7 @@
 #define ARM_GAS16(Address)     { EFI_ACPI_5_0_SYSTEM_MEMORY, 16, 0, EFI_ACPI_5_0_WORD,      Address }
 #define ARM_GAS32(Address)     { EFI_ACPI_5_0_SYSTEM_MEMORY, 32, 0, EFI_ACPI_5_0_DWORD,     Address }
 #define ARM_GASN(Address)      { EFI_ACPI_5_0_SYSTEM_MEMORY,  0, 0, EFI_ACPI_5_0_DWORD,     Address }
+#define ARM_GAS64(Address)     { EFI_ACPI_6_3_SYSTEM_MEMORY, 64, 0, EFI_ACPI_6_3_QWORD,     Address }
 
 //
 // Macros for the Multiple APIC Description Table (MADT)
@@ -87,6 +88,25 @@
     EFI_ACPI_5_1_GTDT_SBSA_GENERIC_WATCHDOG, sizeof(EFI_ACPI_5_1_GTDT_SBSA_GENERIC_WATCHDOG_STRUCTURE), \
     EFI_ACPI_RESERVED_BYTE, RefreshFramePhysicalAddress, ControlFramePhysicalAddress,                   \
     WatchdogTimerGSIV, WatchdogTimerFlags                                                               \
+  }
+
+//
+// HEST table GHESv2 type related structure.
+// Helper Macro to initialize the HEST GHESv2 Notification Structure.
+// Refer Table 18-394 in ACPI Specification, Version 6.3.
+//
+#define EFI_ACPI_6_3_HARDWARE_ERROR_NOTIFICATION_STRUCTURE_INIT(Type,         \
+  PollInterval, EventId)                                                      \
+  {                                                                           \
+    Type,                                                                     \
+    sizeof (EFI_ACPI_6_3_HARDWARE_ERROR_NOTIFICATION_STRUCTURE),              \
+    {0, 0, 0, 0, 0, 0, 0}, /* ConfigurationWriteEnable */                     \
+    PollInterval,                                                             \
+    EventId,                                                                  \
+    0,                    /* Poll Interval Threshold Value  */                \
+    0,                    /* Poll Interval Threshold Window */                \
+    0,                    /* Error Threshold Value          */                \
+    0                     /* Error Threshold Window         */                \
   }
 
 typedef
